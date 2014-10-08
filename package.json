@@ -1,0 +1,43 @@
+{
+  "name": "angular_todo",
+  "version": "0.0.1",
+  "description": "simple todo app to teach angular",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristofmic/angular_todo.git"
+  },
+  "author": "TeamVoxa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristofmic/angular_todo/issues"
+  },
+  "homepage": "https://github.com/kristofmic/angular_todo",
+  "engines": {
+    "node": "0.10.x"
+  },
+  "dependencies": {
+    "ejs": "~1.0.0",
+    "express": "~4.2.0"
+  },
+  "devDependencies": {
+    "errorhandler": "~1.2.0",
+    "grunt": "~0.4.5",
+    "grunt-angular-templates": "~0.5.6",
+    "grunt-bg-shell": "~2.3.1",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-karma": "~0.9.0",
+    "karma": "~0.12.24",
+    "karma-jasmine": "^0.1.5",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "nodemon": "~1.2.1",
+    "protractor": "~1.3.1"
+  }
+}
