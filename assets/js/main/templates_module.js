@@ -1,8 +1,18 @@
 angular.module('ch.Main.Templates', []).run(['$templateCache', function($templateCache) {
   'use strict';
 
+  $templateCache.put('done.html',
+    "<h1>{{heading}}</h1>"
+  );
+
+
   $templateCache.put('main.html',
-    "<div class=\"container\" ui-view></div>"
+    "<div class=\"container\"><div ng-include=\"'nav.html'\"></div><div ui-view></div></div>"
+  );
+
+
+  $templateCache.put('nav.html',
+    "<div class=\"row\"><div class=\"col-sm-8 col-sm-offset-2\"><ul class=\"nav nav-pills\"><li ch-active-nav=\"main.todo\"><a ui-sref=\"main.todo\">To Do's</a></li><li ch-active-nav=\"main.done\"><a ui-sref=\"main.done\">Done</a></li></ul></div></div>"
   );
 
 

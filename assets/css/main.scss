@@ -3,7 +3,7 @@ body {
   color: rgba(#000, .87);
 
   .container {
-    padding-top: 70px;
+    padding-top: 30px;
   }
 }
 
@@ -12,3 +12,4 @@ input.form-control, button.btn {
 }
 
 @import './todos';
+@import './nav';

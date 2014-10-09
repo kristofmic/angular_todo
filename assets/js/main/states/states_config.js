@@ -25,6 +25,11 @@
         url: '/todo',
         templateUrl: 'todo.html',
         controller: 'todoController'
+      })
+      .state('main.done', {
+        url: '/done',
+        templateUrl: 'done.html',
+        controller: 'doneController'
       });
   }
 })(angular);
