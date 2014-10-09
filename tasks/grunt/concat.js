@@ -15,8 +15,8 @@ module.exports = {
     },
     src: [
       '<%= jsPath %>/vendor/**/*.js',
-      '<%= jsPath %>/main/home/home_module.js',
-      '<%= jsPath %>/main/home/*.js',
+      '<%= jsPath %>/main/todo/todo_module.js',
+      '<%= jsPath %>/main/todo/*.js',
       '<%= jsPath %>/main/states/states_module.js',
       '<%= jsPath %>/main/states/*.js',
       '<%= jsPath %>/main/templates_module.js',

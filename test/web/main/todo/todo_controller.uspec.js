@@ -1,15 +1,15 @@
-describe('homeController', function() {
+describe('todoController', function() {
 
   var
     controller,
     scope;
 
-  beforeEach(module('ch.Main.Home'));
+  beforeEach(module('ch.Main.Todo'));
 
   beforeEach(inject(function($rootScope, $controller) {
     scope = $rootScope.$new();
 
-    controller = $controller('homeController', {
+    controller = $controller('todoController', {
       $scope: scope
     });
 
@@ -21,7 +21,7 @@ describe('homeController', function() {
 
   describe('initialization', function() {
     it('should set the heading text', function() {
-      expect(scope.heading).toEqual('Hello World!');
+      expect(scope.heading).toEqual('To Do\'s!');
     });
   });
 

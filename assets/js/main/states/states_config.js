@@ -19,7 +19,7 @@
     }
 
     $urlRouterProvider
-      .otherwise('/home');
+      .otherwise('/todo');
 
     $stateProvider
       .state('main', {
@@ -27,10 +27,10 @@
         templateUrl: 'main.html',
         controller: 'mainController'
       })
-      .state('main.home', {
-        url: '/home',
-        templateUrl: 'home.html',
-        controller: 'homeController'
+      .state('main.todo', {
+        url: '/todo',
+        templateUrl: 'todo.html',
+        controller: 'todoController'
       });
   }
 
