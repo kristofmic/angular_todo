@@ -1,4 +1,14 @@
 body {
   background-color: rgba(#000, .06);
   color: rgba(#000, .87);
+
+  .container {
+    padding-top: 70px;
+  }
 }
+
+input.form-control, button.btn {
+  border-radius: 0;
+}
+
+@import './todos';
