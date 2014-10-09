@@ -7,7 +7,7 @@
     'ngTouch',
     'ch.Main.Templates',
     'ch.Main.States',
-    'ch.Main.Home'
+    'ch.Main.Todo'
   ];
 
   angular.module('ch.Main', dependencies);

@@ -5,6 +5,6 @@
 
   dependencies = [];
 
-  angular.module('ch.Main.Home', dependencies);
+  angular.module('ch.Main.Todo', dependencies);
 
 })(angular);
