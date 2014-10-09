@@ -2,8 +2,6 @@ var
   baseUrl = 'http://localhost:3000/';
 
 exports.config = {
-  //seleniumAddress: 'http://localhost:4444/wd/hub',
-
   baseUrl: baseUrl,
 
   framework: 'jasmine',
@@ -26,7 +24,6 @@ exports.config = {
     { 'browserName': 'firefox' }
   ],
   */
-
 
   onPrepare: function(){
     global.isAngularSite = function(flag){

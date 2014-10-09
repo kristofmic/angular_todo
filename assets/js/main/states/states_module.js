@@ -6,6 +6,6 @@
     'ui.router'
   ];
 
-  angular.module('ch.States', dependencies);
+  angular.module('ch.Main.States', dependencies);
 
 })(angular);

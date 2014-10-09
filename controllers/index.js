@@ -1,4 +1,4 @@
 module.exports = function routeHandler(app) {
-  app.use('/', require('./todo'));
+  app.use('/', require('./main'));
 };
 

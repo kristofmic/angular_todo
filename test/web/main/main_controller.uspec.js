@@ -1,12 +1,12 @@
-describe('todoController', function() {
+describe('mainController', function() {
 
   var
     controller;
 
-  beforeEach(module('ch.Todo'));
+  beforeEach(module('ch.Main'));
 
   beforeEach(inject(function($rootScope, $controller) {
-    controller = $controller('todoController', {
+    controller = $controller('mainController', {
       $scope: $rootScope.$new()
     });
 

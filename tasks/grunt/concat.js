@@ -7,7 +7,7 @@ module.exports = {
     ],
     dest: '<%= pubJsPath %>/components.js'
   },
-  todo: {
+  main: {
     options: {
       process: function(src, filepath) {
         return '\n// ' + filepath + '\n' + src;
@@ -15,13 +15,15 @@ module.exports = {
     },
     src: [
       '<%= jsPath %>/vendor/**/*.js',
-      '<%= jsPath %>/states/states_module.js',
-      '<%= jsPath %>/states/*.js',
-      '<%= jsPath %>/templates_module.js',
-      '<%= jsPath %>/todo/todo_module.js',
-      '<%= jsPath %>/todo/*.js',
+      '<%= jsPath %>/main/home/home_module.js',
+      '<%= jsPath %>/main/home/*.js',
+      '<%= jsPath %>/main/states/states_module.js',
+      '<%= jsPath %>/main/states/*.js',
+      '<%= jsPath %>/main/templates_module.js',
+      '<%= jsPath %>/main/main_module.js',
+      '<%= jsPath %>/main/*.js',
       '<%= jsPath %>/**/*.js',
     ],
-    dest: '<%= pubJsPath %>/todo.js'
+    dest: '<%= pubJsPath %>/main.js'
   }
 };

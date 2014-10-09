@@ -1,11 +1,11 @@
 module.exports = {
-  todo: {
+  main: {
     src: [
       '<%= htmlPath %>/**/*.html'
     ],
-    dest: '<%= jsPath %>/templates_module.js',
+    dest: '<%= jsPath %>/main/templates_module.js',
     options: {
-      module: 'ch.Templates',
+      module: 'ch.Main.Templates',
       standalone: true,
       htmlmin: {
         collapseWhitespace: true,

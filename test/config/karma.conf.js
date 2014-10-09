@@ -15,7 +15,7 @@ module.exports = function(config) {
 
         '../../assets/components/angular-mocks/angular-mocks.js',
 
-        '../../public/js/todo.js',
+        '../../public/js/main.js',
 
         '../web/**/*.uspec.js'
     ],

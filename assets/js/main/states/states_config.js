@@ -8,23 +8,23 @@
     statesConfig
   ];
 
-  angular.module('ch.States')
+  angular.module('ch.Main.States')
     .config(definition);
 
   function statesConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider
-      .otherwise('/todos');
+      .otherwise('/home');
 
     $stateProvider
-      .state('todo', {
+      .state('main', {
         abstract: true,
-        templateUrl: 'todo.html',
-        controller: 'todoController'
+        templateUrl: 'main.html',
+        controller: 'mainController'
       })
-      .state('todo.todos', {
-        url: '/todos',
-        templateUrl: 'todos.html',
-        controller: 'todosController'
+      .state('main.home', {
+        url: '/home',
+        templateUrl: 'home.html',
+        controller: 'homeController'
       });
   }
 })(angular);

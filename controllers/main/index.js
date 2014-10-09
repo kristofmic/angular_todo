@@ -7,7 +7,7 @@ router.get('/', get);
 module.exports = router;
 
 function get(req, res) {
-  res.render('todo/index');
+  res.render('main/index');
 }
 
 

@@ -21,6 +21,8 @@
     "beforeEach": false,
     "expect": false,
     "browser": false,
+    "element": false,
+    "by": false,
     "inject": false,
     "sinon": false
   },

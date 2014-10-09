@@ -1,10 +1,10 @@
 module.exports = {
-  todo: {
+  main: {
     options: {
       style: 'expanded'
     },
     files: {
-      '<%= pubCssPath %>/todo.css': '<%= cssPath %>/todo.scss'
+      '<%= pubCssPath %>/main.css': '<%= cssPath %>/main.scss'
     }
   },
 };
