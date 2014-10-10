@@ -3,9 +3,10 @@ module.exports = gruntConfig;
 function gruntConfig(grunt) {
   var
     pkg = grunt.file.readJSON('package.json'),
-    tasks = require('./tasks/grunt');
+    tasks = require('./tasks/grunt'),
+    gruntInitConfig;
 
-  grunt.initConfig({
+  gruntInitConfig = {
     jsPath: 'assets/js',
     componentsPath: 'assets/components',
     cssPath: 'assets/css',
@@ -15,20 +16,18 @@ function gruntConfig(grunt) {
     pubJsPath: 'public/js',
     pubCssPath: 'public/css',
     pubImagePath: 'public/img',
-    pubFontPath: 'public/fonts',
+    pubFontPath: 'public/fonts'
+  };
 
-    concat: tasks.concat,
-    watch: tasks.watch,
-    copy: tasks.copy,
-    sass: tasks.sass,
-    ngtemplates: tasks.ngtemplates,
-    bgShell: tasks.bgShell,
-    karma: tasks.karma
-  });
+  for (var task in tasks) {
+    gruntInitConfig[task] = tasks[task];
+  }
 
-  for (var task in pkg.devDependencies) {
-    if (task !== 'grunt' && !task.indexOf('grunt')) {
-      grunt.loadNpmTasks(task);
+  grunt.initConfig(gruntInitConfig);
+
+  for (var dep in pkg.devDependencies) {
+    if (dep !== 'grunt' && !dep.indexOf('grunt')) {
+      grunt.loadNpmTasks(dep);
     }
   }
 
