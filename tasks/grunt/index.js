@@ -1,9 +1,9 @@
-module.exports = {
-  bgShell: require('./bgShell'),
-  concat: require('./concat'),
-  copy: require('./copy'),
-  karma: require('./karma'),
-  ngtemplates: require('./ngtemplates'),
-  sass: require('./sass'),
-  watch: require('./watch')
-};
+var
+  fs = require('fs'),
+  files = fs.readdirSync(__dirname);
+
+files.forEach(addToExports);
+
+function addToExports(fileName) {
+  exports[fileName.split('.')[0]] = require('./' + fileName);
+}
