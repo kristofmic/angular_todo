@@ -7,7 +7,7 @@
     todosFactory
   ];
 
-  angular.module('ch.Main.Todo')
+  angular.module('ch.Main.Todos')
     .factory('todos', definitions);
 
   function todosFactory() {
@@ -17,6 +17,7 @@
     return {
       init: init,
       create: create,
+      archive: archive,
       destroy: destroy,
       model: model
     };
@@ -32,31 +33,49 @@
     function create(newTodo) {
       model.push({
         description: newTodo,
-        completed: false
+        completed: false,
+        archived: false
       });
     }
 
-    function destroy(i) {
-      model.splice(i, 1);
+    function archive(todo) {
+      todo.archived = true;
+    }
+
+    function destroy(todo) {
+      model.forEach(function (td, i) {
+        if (td === todo) {
+          model.splice(i, 1);
+        }
+      });
     }
 
     function data() {
       return [
         {
           description: 'Build a todo app',
-          completed: false
+          completed: false,
+          archived: false
         },
         {
           description: 'Teach angular',
-          completed: false
+          completed: false,
+          archived: false
         },
         {
           description: 'Take over the world',
-          completed: false
+          completed: false,
+          archived: false
         },
         {
           description: 'Feed Boomer the cat',
-          completed: true
+          completed: true,
+          archived: false
+        },
+        {
+          description: 'Clean Boomer\'s litter box',
+          completed: true,
+          archived: true
         }
       ];
     }

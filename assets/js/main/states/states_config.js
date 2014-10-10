@@ -19,7 +19,7 @@
     }
 
     $urlRouterProvider
-      .otherwise('/todo');
+      .otherwise('/todos');
 
     $stateProvider
       .state('main', {
@@ -27,15 +27,15 @@
         templateUrl: 'main.html',
         controller: 'mainController'
       })
-      .state('main.todo', {
-        url: '/todo',
-        templateUrl: 'todo.html',
-        controller: 'todoController'
+      .state('main.todos', {
+        url: '/todos',
+        templateUrl: 'todos.html',
+        controller: 'todosController'
       })
-      .state('main.done', {
-        url: '/done',
-        templateUrl: 'done.html',
-        controller: 'doneController'
+      .state('main.archive', {
+        url: '/archive',
+        templateUrl: 'archive.html',
+        controller: 'archiveController'
       });
   }
 
