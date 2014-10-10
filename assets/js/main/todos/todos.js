@@ -17,7 +17,6 @@
     return {
       init: init,
       create: create,
-      archive: archive,
       destroy: destroy,
       model: model
     };
@@ -33,49 +32,35 @@
     function create(newTodo) {
       model.push({
         description: newTodo,
-        completed: false,
-        archived: false
+        completed: false
       });
     }
 
-    function archive(todo) {
-      todo.archived = true;
-    }
-
-    function destroy(todo) {
-      model.forEach(function (td, i) {
-        if (td === todo) {
-          model.splice(i, 1);
-        }
-      });
+    function destroy(i) {
+      model.splice(i, 1);
     }
 
     function data() {
       return [
         {
           description: 'Build a todo app',
-          completed: false,
-          archived: false
+          completed: false
         },
         {
           description: 'Teach angular',
-          completed: false,
-          archived: false
+          completed: false
         },
         {
           description: 'Take over the world',
-          completed: false,
-          archived: false
+          completed: false
         },
         {
           description: 'Feed Boomer the cat',
-          completed: true,
-          archived: false
+          completed: true
         },
         {
           description: 'Clean Boomer\'s litter box',
-          completed: true,
-          archived: true
+          completed: true
         }
       ];
     }

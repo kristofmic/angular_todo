@@ -5,11 +5,8 @@
 
   dependencies = [
     'ngTouch',
-    'ch.ActiveNav',
     'ch.Main.Templates',
-    'ch.Main.States',
-    'ch.Main.Todos',
-    'ch.Main.Archive'
+    'ch.Main.Todos'
   ];
 
   angular.module('ch.Main', dependencies);

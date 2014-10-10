@@ -5,7 +5,6 @@
 
   definitions = [
     '$scope',
-    '$filter',
     'todos',
     todosController
   ];
@@ -13,25 +12,21 @@
   angular.module('ch.Main.Todos')
     .controller('todosController', definitions);
 
-  function todosController($scope, $filter, todos) {
+  function todosController($scope, todos) {
     todos.init();
 
     $scope.todos = todos.model;
-    $scope.activeTodos = $filter('filter')($scope.todos, {archived: false}).length;
     $scope.addTodo = addTodo;
-    $scope.archiveTodo = archiveTodo;
+    $scope.destroyTodo = destroyTodo;
 
     function addTodo(newTodo) {
       todos.create(newTodo);
       $scope.newTodo = '';
-      $scope.activeTodos += 1;
     }
 
-    function archiveTodo(todo) {
-      todos.archive(todo);
-      $scope.activeTodos -= 1;
+    function destroyTodo(index) {
+      todos.destroy(index);
     }
-
 
   }
 })(angular);
