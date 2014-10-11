@@ -41,6 +41,7 @@ function gruntConfig(grunt) {
     'build:dev'
 
   ]);
+  grunt.registerTask('protractor', [ 'bgShell:protractor']);
   grunt.registerTask('test:dev', [
     'karma:dev',
     'bgShell:protractor'

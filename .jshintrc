@@ -16,8 +16,11 @@
   // Define other globals
   "globals": {
     "angular": false,
+    "jasmine": false,
     "describe": false,
     "it": false,
+    "ddescribe": false,
+    "iit": false,
     "beforeEach": false,
     "expect": false,
     "browser": false,

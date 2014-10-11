@@ -18,6 +18,7 @@
 
     $scope.todos = todos.model;
     $scope.activeTodos = $filter('filter')($scope.todos, {archived: false}).length;
+
     $scope.addTodo = addTodo;
     $scope.archiveTodo = archiveTodo;
 
