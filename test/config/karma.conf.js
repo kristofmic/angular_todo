@@ -26,8 +26,22 @@ module.exports = function(config) {
     // web server port
     port: 8081,
 
+    // coverage
+    preprocessors: {
+      '../../public/js/main.js': ['coverage']
+    },
+
     // test results reporter to use
-    reporters: ['dots'],
+    reporters: ['dots', 'coverage'],
+
+    coverageReporter: {
+      reporters: [
+        {
+          type : 'html',
+          dir : '../reports/web/coverage'
+        }
+      ]
+    },
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
