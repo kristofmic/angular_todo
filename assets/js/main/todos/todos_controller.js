@@ -1,38 +1,12 @@
 (function(angular) {
+  /** TODO
+  Controller for the todos state.
 
-  var
-    definitions;
+  Should initialize the todos, set the todos model onto the view model,
+  set the number of active todos via a filter, and setup #addTodo and
+  #archiveTodo functions.
 
-  definitions = [
-    '$scope',
-    '$filter',
-    'todos',
-    todosController
-  ];
+  Dependencies: $scope, $filter, todos
+  */
 
-  angular.module('ch.Main.Todos')
-    .controller('todosController', definitions);
-
-  function todosController($scope, $filter, todos) {
-    todos.init();
-
-    $scope.todos = todos.model;
-    $scope.activeTodos = $filter('filter')($scope.todos, {archived: false}).length;
-
-    $scope.addTodo = addTodo;
-    $scope.archiveTodo = archiveTodo;
-
-    function addTodo(newTodo) {
-      todos.create(newTodo);
-      $scope.newTodo = '';
-      $scope.activeTodos += 1;
-    }
-
-    function archiveTodo(todo) {
-      todos.archive(todo);
-      $scope.activeTodos -= 1;
-    }
-
-
-  }
 })(angular);

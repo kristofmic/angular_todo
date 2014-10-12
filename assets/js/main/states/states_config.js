@@ -1,42 +1,13 @@
 (function(angular) {
-  var
-    supportsHistoryApi = !!(window.history && history.pushState),
-    definition;
+/** TODO
+  Configuration for ui-router.
 
-  definition = [
-    '$stateProvider',
-    '$urlRouterProvider',
-    '$locationProvider',
-    statesConfig
-  ];
+  Should initialize our application states via the $stateProvider#state api.
+  Should set a default route via the $urlRouterProvider#otherwise api.
+  Should turn on html5Mode (no # in url) via the $locationProvider#html5Mode
+    if the browser supports window.history and history.pushState
 
-  angular.module('ch.Main.States')
-    .config(definition);
-
-  function statesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
-    if (supportsHistoryApi) {
-      $locationProvider.html5Mode(true);
-    }
-
-    $urlRouterProvider
-      .otherwise('/todos');
-
-    $stateProvider
-      .state('main', {
-        abstract: true,
-        templateUrl: 'main.html',
-        controller: 'mainController'
-      })
-      .state('main.todos', {
-        url: '/todos',
-        templateUrl: 'todos.html',
-        controller: 'todosController'
-      })
-      .state('main.archive', {
-        url: '/archive',
-        templateUrl: 'archive.html',
-        controller: 'archiveController'
-      });
-  }
+  Dependencies: $stateProvider, $urlRouterProvider, $locationProvider
+  */
 
 })(angular);

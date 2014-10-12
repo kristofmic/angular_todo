@@ -1,29 +1,11 @@
 (function(angular) {
+/** TODO
+  Controller for the archive state.
 
-  var
-    definitions;
+  Should initialize the todos, set the todos model onto the view model,
+  set the number of archived todos via a filter, and setup #removeTodo function
 
-  definitions = [
-    '$scope',
-    '$filter',
-    'todos',
-    archiveController
-  ];
-
-  angular.module('ch.Main.Archive')
-    .controller('archiveController', definitions);
-
-  function archiveController($scope, $filter, todos) {
-    todos.init();
-
-    $scope.todos = todos.model;
-    $scope.archivedTodos = $filter('filter')($scope.todos, {archived: true}).length;
-    $scope.removeTodo = removeTodo;
-
-    function removeTodo(todo) {
-      todos.destroy(todo);
-      $scope.archivedTodos -= 1;
-    }
-  }
+  Dependencies: $scope, $filter, todos
+  */
 
 })(angular);

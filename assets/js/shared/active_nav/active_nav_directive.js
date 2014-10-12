@@ -1,47 +1,13 @@
 (function(angular) {
+  /** TODO
+  Create a directive that listens to the $stateChangeSuccess event,
+  adding the "active" class to the element if the name of the state being
+  switched to equals the target state passed into the scope of the directive.
 
-  var
-    definitions;
+  The directive should also initiate a check to see if the current state
+  matches the target state.
 
-  definitions = [
-    '$state',
-    activeNavDirective
-  ];
-
-  angular.module('ch.ActiveNav')
-    .directive('chActiveNav', definitions);
-
-  function activeNavDirective($state) {
-
-    return {
-      restrict: 'A',
-      replace: false,
-      scope: {
-        targetState: '@chActiveNav'
-        // bar: =myObjectBinding,
-        // baz: &myFunction
-      },
-      link: linker
-      // controller
-      // compile
-      // transclude
-      // template / templateUrl
-    };
-
-    function linker(scope, elem, attrs) {
-      handleStateChange(null, $state.current);
-      scope.$on('$stateChangeSuccess', handleStateChange);
-
-      function handleStateChange(e, toState) {
-        if (toState.name === scope.targetState) {
-          elem.addClass('active');
-        }
-        else {
-          elem.removeClass('active');
-        }
-      }
-    }
-
-  }
+  Dependencies: $state
+  */
 
 })(angular);
