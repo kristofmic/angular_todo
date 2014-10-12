@@ -5,10 +5,14 @@
     serviceDefinitions;
 
   factoryDefinitions = [
+    '$http',
+    '$q',
     todosFactory
   ];
 
   serviceDefinitions = [
+    '$http',
+    '$q',
     todosService
   ];
 
@@ -16,7 +20,7 @@
     .factory('todos', factoryDefinitions)
     .service('todosService', serviceDefinitions);
 
-  function todosFactory() {
+  function todosFactory($http, $q) {
     var
       model = [];
 
@@ -30,9 +34,27 @@
 
     function init() {
       if (!model.length) {
-        angular.forEach(data(), function(td) {
-          model.push(td);
-        });
+        return $http.get('/api/todos')
+          .then(handleRes);
+      }
+      else {
+        var deferred = $q.defer();
+        deferred.resolve();
+        return deferred.promise;
+      }
+
+      function handleRes(res) {
+        if (res && res.data) {
+          // note that the angular.forEach function is being used versus
+          // the navtive Array.prototype.forEach...not for any reason other
+          // than cross-browser compatability
+          angular.forEach(res.data, function(todo) {
+            model.push(todo);
+          });
+        }
+        else {
+          return $q.reject(res);
+        }
       }
     }
 
@@ -57,7 +79,10 @@
     }
   }
 
-  function todosService() {
+  function todosService($http, $q) {
+    var
+      boundResHandler = handleRes.bind(this);
+
     this.init = init;
     this.create = create;
     this.archive = archive;
@@ -66,9 +91,24 @@
 
     function init() {
       if (!this.model.length) {
-        angular.forEach(data(), function(td) {
-          this.model.push(td);
+        return $http.get('/api/todos')
+          .then(boundResHandler);
+      }
+      else {
+        var deferred = $q.defer();
+        deferred.resolve();
+        return deferred.promise;
+      }
+    }
+
+    function handleRes(res) {
+      if (res && res.data) {
+        angular.forEach(res.data, function(todo) {
+          this.model.push(todo);
         }, this);
+      }
+      else {
+        return $q.reject(res);
       }
     }
 
@@ -91,36 +131,6 @@
         }
       }, this);
     }
-  }
-
-  function data() {
-    return [
-      {
-        description: 'Build a todo app',
-        completed: false,
-        archived: false
-      },
-      {
-        description: 'Teach angular',
-        completed: false,
-        archived: false
-      },
-      {
-        description: 'Take over the world',
-        completed: false,
-        archived: false
-      },
-      {
-        description: 'Feed Boomer the cat',
-        completed: true,
-        archived: false
-      },
-      {
-        description: 'Clean Boomer\'s litter box',
-        completed: true,
-        archived: true
-      }
-    ];
   }
 
 })(angular);

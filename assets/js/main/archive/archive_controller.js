@@ -6,7 +6,7 @@
   definitions = [
     '$scope',
     '$filter',
-    'todos',
+    'todosService',
     archiveController
   ];
 
@@ -14,10 +14,13 @@
     .controller('archiveController', definitions);
 
   function archiveController($scope, $filter, todos) {
-    todos.init();
+    todos.init()
+      .then(function() {
+        $scope.archivedTodos = $filter('filter')($scope.todos, {archived: true}).length;
+      });
 
     $scope.todos = todos.model;
-    $scope.archivedTodos = $filter('filter')($scope.todos, {archived: true}).length;
+
     $scope.removeTodo = removeTodo;
 
     function removeTodo(todo) {
