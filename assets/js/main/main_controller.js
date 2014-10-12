@@ -1,19 +1,9 @@
 (function(angular) {
 
-  var
-    definitions;
+  /** TODO
+  Primary app controller to bootstrap the app and perform app-level logic.
 
-  definitions = [
-    '$scope',
-    mainController
-  ];
-
-  angular.module('ch.Main')
-    .controller('mainController', definitions);
-
-  function mainController($scope) {
-    // Use this controller to initialize and bind functions/objects
-    // that will live across the app.
-  }
+  Dependencies: $scope
+  */
 
 })(angular);

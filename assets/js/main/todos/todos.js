@@ -1,69 +1,40 @@
 (function(angular) {
+  /** TODO
+  Todos service (can be Factory or Service).
 
-  var
-    definitions;
+  Public api should expose #init, #create, #destroy and #model.
+  #init should initialize the model.
+  #create should add a new todo based on a description passed in.
+  #destroy should remove the todo based on the index in the model
+  #model is the underlying data model
 
-  definitions = [
-    todosFactory
-  ];
+  Dependencies: N/A
+  */
 
-  angular.module('ch.Main.Todos')
-    .factory('todos', definitions);
 
-  function todosFactory() {
-    var
-      model = [];
-
-    return {
-      init: init,
-      create: create,
-      destroy: destroy,
-      model: model
-    };
-
-    function init() {
-      if (!model.length) {
-        angular.forEach(data(), function(td) {
-          model.push(td);
-        });
-      }
-    }
-
-    function create(newTodo) {
-      model.push({
-        description: newTodo,
+  function data() {
+    return [
+      {
+        description: 'Build a todo app',
         completed: false
-      });
-    }
-
-    function destroy(i) {
-      model.splice(i, 1);
-    }
-
-    function data() {
-      return [
-        {
-          description: 'Build a todo app',
-          completed: false
-        },
-        {
-          description: 'Teach angular',
-          completed: false
-        },
-        {
-          description: 'Take over the world',
-          completed: false
-        },
-        {
-          description: 'Feed Boomer the cat',
-          completed: true
-        },
-        {
-          description: 'Clean Boomer\'s litter box',
-          completed: true
-        }
-      ];
-    }
+      },
+      {
+        description: 'Teach angular',
+        completed: false
+      },
+      {
+        description: 'Take over the world',
+        completed: false
+      },
+      {
+        description: 'Feed Boomer the cat',
+        completed: true
+      },
+      {
+        description: 'Clean Boomer\'s litter box',
+        completed: true
+      }
+    ];
   }
 
 })(angular);
